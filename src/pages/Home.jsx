@@ -1,11 +1,13 @@
 import Counter from "../Components/Counter";
-import { useState, useEffect } from "react";
-
+import { useState, useEffect, useContext } from "react";
+import { userAuthContext } from "../Contexts/UserAuthContext";
 const Home = () => {
   const [items, setItems] = useState(["Jeans", "Jackets", "Shirts", "Caps"]);
   const [userinput, setInput] = useState([""]);
 
-  const deleteItem = (index) => {
+  const x = useContext(userAuthContext);
+
+  const deleteItem = (id) => {
     const updatedItems = [...items.slice(0, index), ...items.slice(index + 1)];
     setItems(updatedItems);
   };
@@ -27,6 +29,7 @@ const Home = () => {
   }, []);
   return (
     <>
+      <h1>{x.isLoggedIn}</h1>
       <input
         value={userinput}
         onChange={inputChangeHandler}

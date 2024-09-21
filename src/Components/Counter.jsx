@@ -48,6 +48,7 @@ const Counter = ({ itemName, onDelete }) => {
   const Decrement = () => {
     setCount(count - 1);
   };
+
   //   useEffect(() => {
   //     console.log("use effect ran", { itemName });
   //   }); // it gets triggered on every change like typing anything in input field as well
